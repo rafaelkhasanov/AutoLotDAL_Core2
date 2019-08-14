@@ -32,10 +32,7 @@ namespace AutoLotDAL_Core2.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Создать индекс, включающий в себя несколько столбцов
-            modelBuilder.Entity<CreditRisk>(entity =>
-            {
-                entity.HasIndex(e => new {e.FirstName, e.LastName}).IsUnique();
-            });
+            modelBuilder.Entity<CreditRisk>(entity => entity.HasIndex(e => new {e.FirstName, e.LastName}).IsUnique());
             //Установить параметр каскадирования на отношение
             modelBuilder.Entity<Order>()
                 .HasOne(e => e.Car)
